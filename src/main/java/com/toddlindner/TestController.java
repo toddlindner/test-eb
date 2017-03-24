@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
-/**
- * Created by todd on 3/4/17.
- */
 @RestController
 public class TestController {
 
@@ -24,4 +21,9 @@ public class TestController {
 		return customerRepository.findAll();
 	}
 
+	@RequestMapping("/cust/new")
+	public Customer custNew() {
+		Customer c = new Customer("Joe " + new Date(), "Smith");
+		return customerRepository.save(c);
+	}
 }
